@@ -1,42 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
+#include <ctype.h>
 
-#include "Bulls_and_Cows_Source.h"  //Import function from file: Project_Source.h
-#include "Mastermind.h"
+#include "Bulls_and_Cows_Source.h"  //Import function from file: Bulls_and_Cows_Source.h
+#include "Mastermind.h"             //Import function from file: Mastermind.h
 
 
 
 //Point of entry
 
 int check_errors_bulls_and_cows(int* arr) {
-    int num;
+    int num, i = 0;
     printf_s("Pleas input num: ");
     num = incorrect_character_error();
 
     fflush(stdin);
 
     quantity_error(num);
-
     ñonvert_num_to_arr(arr, num);
     tautology_error(arr);
 
 }
 
-
 int mastermind_num_check() {
     int num;
-
+    printf_s("How many colors should there be: ");
     num = incorrect_character_error();
-    limit_error(num);
 
-
+    /*This function throws an error when the user enters a number less than 4 or more in 10.
+    If the number is less than 4 then the game will be too easy and
+    if more than 10 then the game may be extended for hours.*/
+    while (num < 4 || num > 10){
+        printf_s("Error: You went beyond the border.\n");
+        printf_s("Please try again(Min. allowed 4, max. allowed 10): ");
+        num = incorrect_character_error();
+    }
     return num;
 }
 
 int mastermind_color_check(char* str, int num) {
+    char symbol;
+    
     for (int i = 0; i < num; i++) {
-
+        str[i] = color_error(i+1);
     }
 
 }
@@ -53,12 +59,14 @@ int incorrect_character_error() { ///???
     
     if (scanf_s("%d", &num) != 1) {
         while (getchar() != '\n');
+
         printf_s("Error: incorrect character.\n");
-        printf_s("Try again:");
-        
-        incorrect_character_error();
+        printf_s("Try again: ");
+
+        return incorrect_character_error();
         //_Exit(EXIT_SUCCESS);
     }
+
     return num;
 }
 /*
@@ -115,14 +123,30 @@ int quantity_error(int num) {
     }
 }
 
-/*This function throws an error when the user enters a number less than 4 or more in 10.
-If the number is less than 4 then the game will be too easy and 
-if more than 10 then the game may be extended for hours.
+/*
+This function checks the entered color of the available colors:
+    Y-Yellow
+    G-Green
+    R-Red
+    P-Pink
+    B-Blue
+    O-Orange.
+If the entered color is not in range, an error occurs.
+The program asks you to enter the color again.
 */
-int limit_error(int num) {
-    if (num < 4 || num > 10) {
-        printf_s("Error: You went beyond the border.\n");
-        printf_s("Please try again(Min. allowed 4, max. allowed 10): ");
-        _Exit(EXIT_SUCCESS);
+int color_error(int counter) {
+    while (getchar() != '\n');
+    char color;
+
+    printf_s("Pleas input %d color: ", counter);
+    scanf_s("%c", &color);
+    color = tolower(color);
+
+    if (!(color == 'y' || color == 'g' || color == 'r' || color == 'p' || color == 'b' || color == 'o')) {
+        printf_s("\nError: This color is not used in the game.\n\n");
+        printf_s("Available colors:\nY-Yellow\nG-Green\nR-Red\nP-Pink\nB-Blue\nO-Orange.\n\n");
+        return color_error(counter);
     }
+    
+    return color;
 }

@@ -2,25 +2,11 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#include "Bulls_and_Cows_Source.h"  //Import function from file: Bulls_and_Cows_Source.h
 #include "Mastermind.h"             //Import function from file: Mastermind.h
 
 
 
 //Point of entry
-
-int check_errors_bulls_and_cows(int* arr) {
-    int num, i = 0;
-    printf_s("Pleas input num: ");
-    num = incorrect_character_error();
-
-    fflush(stdin);
-
-    quantity_error(num);
-    ñonvert_num_to_arr(arr, num);
-    tautology_error(arr);
-
-}
 
 int mastermind_num_check() {
     int num;
@@ -68,39 +54,6 @@ int incorrect_character_error() { ///???
     }
 
     return num;
-}
-/*
- do
-    {
-        printf_s("Pleas input num: ");
-        indicator = scanf_s("%d", &num);
-
-        while (getchar() != '\n');
-
-        if (indicator != 1) {
-            printf_s("Error: incorrect character.\n\n");
-        }
-    } while (indicator != 1);
-*/
-
-/*
-This function checks for tautology in the number.
-If a tautology exists, the program terminates.
-Otherwise, the program returns to the entry point.
-
-Examples of tautology:
-
-        1223
-        3356
-        2245
-        4455
-*/
-int tautology_error(int* arr) {
-    if (check_num(arr)) {
-        printf_s("Error: The numbers should not be repeated.\n");
-        printf_s("Try again:");
-        _Exit(EXIT_SUCCESS);
-    }
 }
 
 /*

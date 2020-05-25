@@ -21,18 +21,12 @@
     <ClCompile Include="Errors.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Bulls_and_Cows_Source.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Mastermind.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Errors.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Bulls_and_Cows_Source.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Mastermind.h">

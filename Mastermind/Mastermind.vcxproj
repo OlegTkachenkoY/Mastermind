@@ -140,12 +140,10 @@
   <ItemGroup>
     <ClCompile Include="Errors.c" />
     <ClCompile Include="Main.c" />
-    <ClCompile Include="Bulls_and_Cows_Source.c" />
     <ClCompile Include="Mastermind.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Errors.h" />
-    <ClInclude Include="Bulls_and_Cows_Source.h" />
     <ClInclude Include="Mastermind.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

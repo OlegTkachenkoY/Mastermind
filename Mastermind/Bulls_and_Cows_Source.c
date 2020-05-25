@@ -69,7 +69,7 @@ Step 3: Go back to step 1 four times
 -   = {1,2,3,4}
 
 */
-int сonvert_num_to_arr(int *arr,int num) {
+int convert_num_to_arr(int *arr,int num) {
     for (int i = 3; i >= 0; i--) {
        arr[i] = num % 10;
        num = num / 10;

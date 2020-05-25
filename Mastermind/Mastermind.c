@@ -73,3 +73,18 @@ int colors_is_correct(char* str, char* random_str, int num) {
 }
 
 //****************************************************************
+/*
+This function determines the number of digits in a given number. This is determined by simple arithmetic action:
+1) The number is divisible by 10 without fractions(123 // 10 = 12).
+2) Check if the new number is 0.
+3) If the new number is zero then go to step 4. if not step 1
+4) End of algorithm.
+*/
+int counter_of_number(int num) {
+    int counter = 0;
+    while (num != 0) {
+        num = num / 10;
+        counter++;
+    }
+    return counter;
+}

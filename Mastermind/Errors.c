@@ -18,7 +18,7 @@ int mastermind_num_check() {
     if more than 10 then the game may be extended for hours.*/
     while (num < 4 || num > 10){
         printf_s("Error: You went beyond the border.\n");
-        printf_s("Please try again(Min. allowed 4, max. allowed 10): ");
+        printf_s("Please try again(Min. allowed 4, max. allowed 10): \n");
         num = incorrect_character_error();
     }
     return num;

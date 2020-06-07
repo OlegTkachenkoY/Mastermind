@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 
@@ -11,7 +11,7 @@
 int mastermind_num_check() {
     int num;
     printf_s("How many colors should there be: ");
-    num = incorrect_character_error();
+    num = incorrect_character_error();      //funkcja wywaljąca błąd jeśli zamias liczby litera. Funkcja rakurecyjna.
 
     /*This function throws an error when the user enters a number less than 4 or more in 10.
     If the number is less than 4 then the game will be too easy and
@@ -23,6 +23,7 @@ int mastermind_num_check() {
     }
     return num;
 }
+
 
 int mastermind_color_check(char* str, int num) {
     char symbol;
@@ -39,7 +40,7 @@ This function checks that the number you enter does not contain any characters.
 If the entered data contains characters, the program stops working.
 If not, the input is returned to the entry point.
 */
-int incorrect_character_error() { ///???
+int incorrect_character_error() {
     int num;
 
     
